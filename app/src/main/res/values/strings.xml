@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">News App</string>
+    <string name="source_url">Source URL:</string>
+    <string name="filter_news_by">Filter News By:</string>
+    <string name="cancel">Cancel</string>
+    <string name="filter">Filter</string>
+    <string name="oops_no_news_founded">Oops , No News Founded!</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

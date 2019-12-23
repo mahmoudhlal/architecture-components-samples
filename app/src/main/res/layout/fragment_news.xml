@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+        <import type="android.view.View" />
+
+        <variable
+            name="isEmpty"
+            type="boolean" />
+
+        <variable
+            name="isLoading"
+            type="boolean" />
+
+        <variable
+            name="title"
+            type="String" />
+
+        <variable
+            name="homeView"
+            type="com.ma7moud.newsapp.newsPackage.listScreenPackage.NewsView"
+            />
+
+    </data>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <RelativeLayout
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="@color/colorPrimaryDark">
+
+            <TextView
+                android:id="@+id/txtTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="8dp"
+                android:layout_toStartOf="@+id/Filter"
+                android:ellipsize="end"
+                android:ems="3"
+                android:lines="1"
+                android:text="@{title}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/colorWhite" />
+
+
+            <ImageView
+                android:id="@+id/Filter"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="10dp"
+                android:padding="10dp"
+                android:onClick="@{() -> homeView.onFilterClick()}"
+                android:src="@drawable/ic_filter"
+
+                />
+
+            <!--
+                        android:onClick="@{() -> homeView.onFilterClick()}"
+            -->
+
+        </RelativeLayout>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycleNews"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/toolbar"
+            tools:listitem="@layout/view_news" />
+
+        <TextView
+            android:id="@+id/empty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/oops_no_news_founded"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+
+            android:visibility="@{isEmpty ? View.VISIBLE : View.GONE}" />
+
+        <ProgressBar
+            android:id="@+id/bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:visibility="@{isLoading ? View.VISIBLE : View.GONE}" />
+
+    </RelativeLayout>
+</layout>
